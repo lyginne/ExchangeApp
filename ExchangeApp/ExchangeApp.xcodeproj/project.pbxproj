@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842AD0C916590FCC003A911E /* RequestFormer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0C816590FCC003A911E /* RequestFormer.m */; };
 		847AD49216517B6B00A045EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49116517B6B00A045EC /* UIKit.framework */; };
 		847AD49416517B6B00A045EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49316517B6B00A045EC /* Foundation.framework */; };
 		847AD49616517B6B00A045EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49516517B6B00A045EC /* CoreGraphics.framework */; };
@@ -19,9 +20,12 @@
 		847AD4AB16517B6B00A045EC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847AD4A916517B6B00A045EC /* MainStoryboard.storyboard */; };
 		847AD4AE16517B6B00A045EC /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD4AD16517B6B00A045EC /* MasterViewController.m */; };
 		847AD4B116517B6B00A045EC /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD4B016517B6B00A045EC /* DetailViewController.m */; };
+		849243C916556F2700670FBD /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 849243C816556F2700670FBD /* ConnectionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842AD0C716590FCC003A911E /* RequestFormer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestFormer.h; sourceTree = "<group>"; };
+		842AD0C816590FCC003A911E /* RequestFormer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestFormer.m; sourceTree = "<group>"; };
 		847AD48D16517B6B00A045EC /* ExchangeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847AD49116517B6B00A045EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		847AD49316517B6B00A045EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,6 +44,8 @@
 		847AD4AD16517B6B00A045EC /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		847AD4AF16517B6B00A045EC /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		847AD4B016517B6B00A045EC /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		849243C716556F2700670FBD /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		849243C816556F2700670FBD /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 				847AD4AD16517B6B00A045EC /* MasterViewController.m */,
 				847AD4AF16517B6B00A045EC /* DetailViewController.h */,
 				847AD4B016517B6B00A045EC /* DetailViewController.m */,
+				849243C716556F2700670FBD /* ConnectionManager.h */,
+				849243C816556F2700670FBD /* ConnectionManager.m */,
+				842AD0C816590FCC003A911E /* RequestFormer.m */,
+				842AD0C716590FCC003A911E /* RequestFormer.h */,
 				847AD49816517B6B00A045EC /* Supporting Files */,
 			);
 			path = ExchangeApp;
@@ -182,6 +192,8 @@
 				847AD4A216517B6B00A045EC /* AppDelegate.m in Sources */,
 				847AD4AE16517B6B00A045EC /* MasterViewController.m in Sources */,
 				847AD4B116517B6B00A045EC /* DetailViewController.m in Sources */,
+				849243C916556F2700670FBD /* ConnectionManager.m in Sources */,
+				842AD0C916590FCC003A911E /* RequestFormer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +310,7 @@
 				847AD4B616517B6B00A045EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
