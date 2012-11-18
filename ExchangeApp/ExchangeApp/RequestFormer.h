@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ConnectionManager.h"
 
-@interface RequestFormer : NSObject
+@interface RequestFormer : NSObject <ConnectionManagerDelegate>
 
 -(void) getSubFoldersFromDistinguishedFolderId:(NSString *) distinguishedFolderId;
+-(void) getSubFoldersFromFolder:(Folder *) folder
+      withDistinguishedFolderId:(NSString *) distinguishedFolderId;
 
 @end

@@ -11,7 +11,11 @@
 @implementation ConnectionManager{
     
     NSString *str;
+    NSMutableData *receivedData;
 }
+
+@synthesize folder;
+@synthesize delegate=_delegate;
 
 -(void)createRequestToUrl:(NSURL *) url requestHTTPBody:(NSString *) requestHTTPBody {
     
@@ -27,7 +31,7 @@
     if (theConnection) {
         // Create the NSMutableData to hold the received data.
         // receivedData is an instance variable declared elsewhere.
-        //        receivedData = [[NSMutableData data] retain];
+       receivedData = [[NSMutableData data] retain];
         NSLog(@"Connection succeed");
     } else {
         NSLog(@"Connection failed");
@@ -49,6 +53,7 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
     } else {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
         NSLog(@"Authentification Failed");
+        [receivedData release];
         // inform the user that the user name and password
         // in the preferences are incorrect
         //[self showPreferencesCredentialsAreIncorrectPanel:self];
@@ -64,7 +69,7 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
     // redirect, so each time we reset the data.
     
     // receivedData is an instance variable declared elsewhere.
-    //[receivedData setLength:0];
+    [receivedData setLength:0];
     NSLog(@"Did receive response");
 }
 
@@ -72,9 +77,9 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
-    //[receivedData appendData:data];
-    NSString *receivedData=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Did Receive data %@", receivedData);
+    [receivedData appendData:data];
+    NSString *receivedDataStr=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"Did Receive data %@", receivedDataStr);
     
 }
 
@@ -84,7 +89,7 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
     // release the connection, and the data object
     [connection release];
     // receivedData is declared as a method instance elsewhere
-    //[receivedData release];
+    [receivedData release];
     
     // inform the user
     NSLog(@"Connection failed! Error - %@ %@ %@",
@@ -101,8 +106,10 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
     
     // release the connection, and the data object
     NSLog(@"Connection Did Finish Loading");
+    [_delegate connectionManager:self didFinishLoadingData:receivedData];
     [connection release];
-    //[receivedData release];
+    [receivedData release];
+    
 }
 
 @end

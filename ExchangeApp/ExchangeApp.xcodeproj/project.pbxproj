@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		842AD0C916590FCC003A911E /* RequestFormer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0C816590FCC003A911E /* RequestFormer.m */; };
+		842AD0CC16592AF4003A911E /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0CB16592AF4003A911E /* Folder.m */; };
+		842AD0CF16592C3B003A911E /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0CE16592C3B003A911E /* Item.m */; };
+		842AD0D61659316A003A911E /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0D51659316A003A911E /* GDataXMLNode.m */; };
 		847AD49216517B6B00A045EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49116517B6B00A045EC /* UIKit.framework */; };
 		847AD49416517B6B00A045EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49316517B6B00A045EC /* Foundation.framework */; };
 		847AD49616517B6B00A045EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49516517B6B00A045EC /* CoreGraphics.framework */; };
@@ -21,11 +24,18 @@
 		847AD4AE16517B6B00A045EC /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD4AD16517B6B00A045EC /* MasterViewController.m */; };
 		847AD4B116517B6B00A045EC /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD4B016517B6B00A045EC /* DetailViewController.m */; };
 		849243C916556F2700670FBD /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 849243C816556F2700670FBD /* ConnectionManager.m */; };
+		8493545C165955200068BF2A /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493545B165955200068BF2A /* Parser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		842AD0C716590FCC003A911E /* RequestFormer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestFormer.h; sourceTree = "<group>"; };
 		842AD0C816590FCC003A911E /* RequestFormer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestFormer.m; sourceTree = "<group>"; };
+		842AD0CA16592AF4003A911E /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		842AD0CB16592AF4003A911E /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		842AD0CD16592C3B003A911E /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		842AD0CE16592C3B003A911E /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		842AD0D41659316A003A911E /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		842AD0D51659316A003A911E /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		847AD48D16517B6B00A045EC /* ExchangeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847AD49116517B6B00A045EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		847AD49316517B6B00A045EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,6 +56,8 @@
 		847AD4B016517B6B00A045EC /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		849243C716556F2700670FBD /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
 		849243C816556F2700670FBD /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		8493545A165955200068BF2A /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		8493545B165955200068BF2A /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842AD0D016592CBC003A911E /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				849243C716556F2700670FBD /* ConnectionManager.h */,
+				849243C816556F2700670FBD /* ConnectionManager.m */,
+				842AD0C716590FCC003A911E /* RequestFormer.h */,
+				842AD0C816590FCC003A911E /* RequestFormer.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		842AD0D216592CEE003A911E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				842AD0CA16592AF4003A911E /* Folder.h */,
+				842AD0CB16592AF4003A911E /* Folder.m */,
+				842AD0CD16592C3B003A911E /* Item.h */,
+				842AD0CE16592C3B003A911E /* Item.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		842AD0D316592D0F003A911E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				847AD4AF16517B6B00A045EC /* DetailViewController.h */,
+				847AD4B016517B6B00A045EC /* DetailViewController.m */,
+				847AD4AC16517B6B00A045EC /* MasterViewController.h */,
+				847AD4AD16517B6B00A045EC /* MasterViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		842AD0D716593171003A911E /* parsers */ = {
+			isa = PBXGroup;
+			children = (
+				842AD0D41659316A003A911E /* GDataXMLNode.h */,
+				842AD0D51659316A003A911E /* GDataXMLNode.m */,
+				8493545A165955200068BF2A /* Parser.h */,
+				8493545B165955200068BF2A /* Parser.m */,
+			);
+			name = parsers;
+			sourceTree = "<group>";
+		};
 		847AD48216517B6A00A045EC = {
 			isa = PBXGroup;
 			children = (
@@ -94,16 +150,12 @@
 			children = (
 				847AD4A016517B6B00A045EC /* AppDelegate.h */,
 				847AD4A116517B6B00A045EC /* AppDelegate.m */,
+				842AD0D016592CBC003A911E /* Connection */,
+				842AD0D216592CEE003A911E /* Data */,
 				847AD4A916517B6B00A045EC /* MainStoryboard.storyboard */,
-				847AD4AC16517B6B00A045EC /* MasterViewController.h */,
-				847AD4AD16517B6B00A045EC /* MasterViewController.m */,
-				847AD4AF16517B6B00A045EC /* DetailViewController.h */,
-				847AD4B016517B6B00A045EC /* DetailViewController.m */,
-				849243C716556F2700670FBD /* ConnectionManager.h */,
-				849243C816556F2700670FBD /* ConnectionManager.m */,
-				842AD0C816590FCC003A911E /* RequestFormer.m */,
-				842AD0C716590FCC003A911E /* RequestFormer.h */,
+				842AD0D716593171003A911E /* parsers */,
 				847AD49816517B6B00A045EC /* Supporting Files */,
+				842AD0D316592D0F003A911E /* Views */,
 			);
 			path = ExchangeApp;
 			sourceTree = "<group>";
@@ -194,6 +246,10 @@
 				847AD4B116517B6B00A045EC /* DetailViewController.m in Sources */,
 				849243C916556F2700670FBD /* ConnectionManager.m in Sources */,
 				842AD0C916590FCC003A911E /* RequestFormer.m in Sources */,
+				842AD0CC16592AF4003A911E /* Folder.m in Sources */,
+				842AD0CF16592C3B003A911E /* Item.m in Sources */,
+				842AD0D61659316A003A911E /* GDataXMLNode.m in Sources */,
+				8493545C165955200068BF2A /* Parser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +296,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -261,8 +319,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

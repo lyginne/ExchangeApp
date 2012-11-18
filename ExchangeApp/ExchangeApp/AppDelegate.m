@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 //#import "ConnectionManager.h"
 #import "RequestFormer.h"
+#import "Folder.h"
 
 @implementation AppDelegate
 
@@ -26,7 +27,9 @@
     splitViewController.delegate = (id)navigationController.topViewController;
     //[[ConnectionManager alloc] init];
     RequestFormer *requestFormer = [[RequestFormer alloc] init];
-    [requestFormer getSubFoldersFromDistinguishedFolderId:@"root"];
+    Folder *rootFolder=[[Folder alloc] init];
+    [requestFormer getSubFoldersFromFolder:rootFolder
+                         withDistinguishedFolderId:@"root"];
     return YES;
 }
 							
