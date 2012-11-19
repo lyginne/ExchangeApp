@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Folders.h"
+#import "Files.h"
+@interface DetailViewController :  UIViewController <UISplitViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
-
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Folders *detailItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 

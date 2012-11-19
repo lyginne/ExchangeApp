@@ -7,16 +7,17 @@
 //
 
 #import "MasterViewController.h"
-
+#import "Folders.h"
+#import "Files.h"
 #import "DetailViewController.h"
 
 @interface MasterViewController () {
-    NSMutableArray *_objects;
+
 }
 @end
 
 @implementation MasterViewController
-
+@synthesize foldersFilesArray;
 - (void)awakeFromNib
 {
     self.clearsSelectionOnViewWillAppear = NO;
@@ -27,35 +28,91 @@
 - (void)dealloc
 {
     [_detailViewController release];
-    [_objects release];
     [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
-    self.navigationItem.rightBarButtonItem = addButton;
+	
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+    
+    //adding data
+    // creating...
+    foldersFilesArray = [[NSMutableArray alloc ] init];
+    
+    // create folder 1 (root)
+    
+    @autoreleasepool {
+        
+    Folders *folder1 = [[Folders alloc ]init];
+    folder1.head = @"FOLDER1";
+    folder1.files = [[NSMutableArray alloc] init];
+    //configure files for folder 1
+    Files *file1ForFolder1 = [[Files alloc ] init];
+    file1ForFolder1.head = @"file1ForFolder1";
+    file1ForFolder1.filetext = @"HELLO WORLD!";
+    [folder1.files addObject:file1ForFolder1];
+    
+    
+    //configure folders for folder 1
+    folder1.folders = [[NSMutableArray alloc] init];
+    Folders *folder2 = [[Folders alloc ]init];
+    Folders *folder3 = [[Folders alloc ]init];
+    folder2.head = @"FOLDER2";
+    folder3.head = @"FOLDER3";
+    folder2.files = [[NSMutableArray alloc ] init];
+    // configure files for folder 2
+    Files *file1ForFolder2 = [[Files alloc ] init];
+    file1ForFolder2.head = @"file1ForFolder2";
+    file1ForFolder2.filetext = @"BYE BYE WORLD!";
+    [folder2.files addObject:file1ForFolder2];
+    [folder1.folders addObject:folder2];
+    
+    
+    folder3.files = [[NSMutableArray alloc ] init];
+    // configure files for folder 3
+    Files *file1ForFolder3 = [[Files alloc ] init];
+    file1ForFolder3.head = @"file1ForFolder3";
+    file1ForFolder3.filetext = @"HELLO, so.. lets start!!";
+    [folder3.files addObject:file1ForFolder3];
+    [folder1.folders addObject:folder3];
+    
+    //
+    [foldersFilesArray addObject:folder1];
+    
+    //
+    
+    // create folder11 (root)
+    
+    Folders *folder11 = [[Folders alloc ]init];
+    folder11.head = @"FOLDER11";
+    folder11.files = [[NSMutableArray alloc] init];
+    //configure files for folder 1
+    Files *file1ForFolder11 = [[Files alloc ] init];
+    file1ForFolder11.head = @"file1ForFolder11";
+    file1ForFolder11.filetext = @"HELLO MY NAME IS 11!";
+    [folder11.files addObject:file1ForFolder11];
+    
+    Files *file2ForFolder11 = [[Files alloc ] init];
+    file2ForFolder11.head = @"file2ForFolder11";
+    file2ForFolder11.filetext = @"HELLO MY NAME IS 11 again!";
+    [folder11.files addObject:file2ForFolder11];
+    
+    
+    
+    //.......................
+    
+    //
+    [foldersFilesArray addObject:folder11];
+    //
+    
+  
+    //
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+
+    
 }
 
 #pragma mark - Table View
@@ -67,54 +124,47 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return [foldersFilesArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    Folders *folder = [foldersFilesArray objectAtIndex:indexPath.row];
+
+    NSString *text = folder.head;
+    cell.textLabel.text = text;
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSDate *object = _objects[indexPath.row];
-    self.detailViewController.detailItem = object;
+{//getting some information from cell
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *head = cell.textLabel.text;
+    
+    //finding folder in array
+    Folders *folderToDetail = [[Folders alloc ] init];
+    for (Folders *ff in foldersFilesArray)
+    {
+        NSString *headFromArray = ff.head;
+        if ([headFromArray isEqualToString:head])
+        {
+            folderToDetail = ff;
+            break;
+            
+        }
+    }
+    
+    
+    //NSString *text = [NSString stringWithFormat:@"%@", folderToDetail.head];
+    // self.detailViewController.detailItem = text;
+    self.detailViewController.detailItem = folderToDetail;
+    [folderToDetail release];
 }
 
 @end

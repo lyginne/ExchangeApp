@@ -21,7 +21,7 @@
     NSDictionary *myNS = [NSDictionary dictionaryWithObjectsAndKeys:
                           @"http://schemas.microsoft.com/exchange/services/2006/types", @"t", nil];
     //NSArray *tempArray = [xmlResult nodesForXPath:@"//ns1:message/ns1:error/ns1:value" namespaces:myNS error:&error];
-    NSArray *folders = [doc nodesForXPath:@"//t:Folder" namespaces:myNS error:nil];
+    NSArray *folders = [doc nodesForXPath:@"//t:Folder//t:SearchFolders" namespaces:myNS error:nil];
     for (GDataXMLElement *XMLfolder in folders)
     {
         Folder *folder = [[Folder alloc] init];

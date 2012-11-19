@@ -7,14 +7,19 @@
 //
 
 #import "DetailViewController.h"
+#import "ShowTextFromFilesViewController.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (nonatomic, strong) IBOutlet UITableView *tblView;
+@property (nonatomic, strong) NSString *inf;
 - (void)configureView;
 @end
 
 @implementation DetailViewController
 
+@synthesize tblView;
+@synthesize inf;
 - (void)dealloc
 {
     [_detailItem release];
@@ -46,21 +51,124 @@
 
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
+        [tblView reloadData];
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.tblView.delegate = self;
+    self.tblView.dataSource = self;
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Table View
+//
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tblView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return 1;
 }
+
+- (NSInteger)tableView:(UITableView *)tblView numberOfRowsInSection:(NSInteger)section
+{
+    return ([self.detailItem.files count] + [self.detailItem.folders count]);
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    BOOL y = ([self.detailItem.folders count] > indexPath.row);
+   
+     if (y)
+     {
+         Folders *folder = [self.detailItem.folders objectAtIndex:indexPath.row];
+         cell.textLabel.text = folder.head;
+     }
+    else
+    {
+        int foldersCount = [self.detailItem.folders count];
+        int index = indexPath.row - foldersCount;
+        
+        Files *file = [self.detailItem.files objectAtIndex:index];
+        cell.textLabel.text = file.head;
+    }
+    
+    // Configure the cell.
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *head = cell.textLabel.text;
+    BOOL a = NO;
+    
+    //try to find this name in a folder array:
+    Folders *folderToDetail = [[Folders alloc ] init];
+    for (Folders *ff in self.detailItem.folders)
+    {
+        NSString *headFromArray = ff.head;
+        if ([headFromArray isEqualToString:head])
+        {
+            folderToDetail = ff;
+            a = YES;
+            break;
+            
+        }
+    }
+    
+    
+    //try to find this name in a files array:
+    Files *fileToDetail = [[Files alloc] init];
+    for (Files *ff in self.detailItem.files)
+    {
+        NSString *headFromArray = ff.head;
+        if ([headFromArray isEqualToString:head])
+        {
+            fileToDetail = ff;
+            a = NO;
+            break;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    if (a)
+    {
+    self.detailItem = folderToDetail;
+    [fileToDetail release];
+    [self.tblView reloadData];
+    }
+    else
+    {
+        ShowTextFromFilesViewController *SVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowText"];
+        SVC.headForText = fileToDetail.head;
+        SVC.textLetter = fileToDetail.filetext;
+        [folderToDetail release];
+        [self presentViewController:SVC animated:YES completion:nil];
+        
+        
+    }
+    
+    
+    
+    
+    
+}
+
+//
 
 #pragma mark - Split view
 

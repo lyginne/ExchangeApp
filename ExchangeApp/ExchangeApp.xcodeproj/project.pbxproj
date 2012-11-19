@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36A8D984165989C200571C39 /* Folders.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D983165989C200571C39 /* Folders.m */; };
+		36A8D988165989D600571C39 /* Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D987165989D500571C39 /* Files.m */; };
+		36A8D98F165995CB00571C39 /* LoginPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D98E165995CB00571C39 /* LoginPasswordViewController.m */; };
+		36A8D9921659961B00571C39 /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D9911659961B00571C39 /* SplitViewController.m */; };
+		36A8D9991659989400571C39 /* ShowTextFromFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D9981659989400571C39 /* ShowTextFromFilesViewController.m */; };
 		842AD0C916590FCC003A911E /* RequestFormer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0C816590FCC003A911E /* RequestFormer.m */; };
 		842AD0CC16592AF4003A911E /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0CB16592AF4003A911E /* Folder.m */; };
 		842AD0CF16592C3B003A911E /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0CE16592C3B003A911E /* Item.m */; };
@@ -28,6 +33,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36A8D982165989C200571C39 /* Folders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folders.h; sourceTree = "<group>"; };
+		36A8D983165989C200571C39 /* Folders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folders.m; sourceTree = "<group>"; };
+		36A8D986165989D500571C39 /* Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Files.h; sourceTree = "<group>"; };
+		36A8D987165989D500571C39 /* Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Files.m; sourceTree = "<group>"; };
+		36A8D98D165995CA00571C39 /* LoginPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPasswordViewController.h; sourceTree = "<group>"; };
+		36A8D98E165995CB00571C39 /* LoginPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPasswordViewController.m; sourceTree = "<group>"; };
+		36A8D9901659961A00571C39 /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
+		36A8D9911659961B00571C39 /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
+		36A8D9971659989300571C39 /* ShowTextFromFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowTextFromFilesViewController.h; sourceTree = "<group>"; };
+		36A8D9981659989400571C39 /* ShowTextFromFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTextFromFilesViewController.m; sourceTree = "<group>"; };
 		842AD0C716590FCC003A911E /* RequestFormer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestFormer.h; sourceTree = "<group>"; };
 		842AD0C816590FCC003A911E /* RequestFormer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestFormer.m; sourceTree = "<group>"; };
 		842AD0CA16592AF4003A911E /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
@@ -92,6 +107,10 @@
 				842AD0CB16592AF4003A911E /* Folder.m */,
 				842AD0CD16592C3B003A911E /* Item.h */,
 				842AD0CE16592C3B003A911E /* Item.m */,
+				36A8D982165989C200571C39 /* Folders.h */,
+				36A8D983165989C200571C39 /* Folders.m */,
+				36A8D986165989D500571C39 /* Files.h */,
+				36A8D987165989D500571C39 /* Files.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -103,6 +122,12 @@
 				847AD4B016517B6B00A045EC /* DetailViewController.m */,
 				847AD4AC16517B6B00A045EC /* MasterViewController.h */,
 				847AD4AD16517B6B00A045EC /* MasterViewController.m */,
+				36A8D98D165995CA00571C39 /* LoginPasswordViewController.h */,
+				36A8D98E165995CB00571C39 /* LoginPasswordViewController.m */,
+				36A8D9901659961A00571C39 /* SplitViewController.h */,
+				36A8D9911659961B00571C39 /* SplitViewController.m */,
+				36A8D9971659989300571C39 /* ShowTextFromFilesViewController.h */,
+				36A8D9981659989400571C39 /* ShowTextFromFilesViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -250,6 +275,11 @@
 				842AD0CF16592C3B003A911E /* Item.m in Sources */,
 				842AD0D61659316A003A911E /* GDataXMLNode.m in Sources */,
 				8493545C165955200068BF2A /* Parser.m in Sources */,
+				36A8D984165989C200571C39 /* Folders.m in Sources */,
+				36A8D988165989D600571C39 /* Files.m in Sources */,
+				36A8D98F165995CB00571C39 /* LoginPasswordViewController.m in Sources */,
+				36A8D9921659961B00571C39 /* SplitViewController.m in Sources */,
+				36A8D9991659989400571C39 /* ShowTextFromFilesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
