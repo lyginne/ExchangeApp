@@ -13,6 +13,25 @@
 
 @implementation RequestFormer 
 
+-(NSString *)XMLToGetItemsFromFolderId: (NSString *) folderId {
+    return [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\
+    <soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\
+xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\">\
+    <soap:Body>\
+    <FindItem xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\"\
+xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\"\
+    Traversal=\"Shallow\">\
+    <ItemShape>\
+    <t:BaseShape>IdOnly</t:BaseShape>\
+    </ItemShape>\
+    <ParentFolderIds>\
+    <t:FolderId Id=\"%@\"/>\
+    </ParentFolderIds>\
+    </FindItem>\
+    </soap:Body>\
+     </soap:Envelope>", folderId];
+}
+
 -(NSString *)XMLtoFromDistinguishedFolderId:(NSString *) distinguishedFolderId {
     return[NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\
          <soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\
