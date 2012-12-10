@@ -8,35 +8,39 @@
 
 #import "SplitViewController.h"
 #import "LoginPasswordViewController.h"
+#import "DataManager.h"
 
-@interface SplitViewController ()
+@implementation SplitViewController{
+    NSThread *backgroundDownloadingThread;
+}
 
-
-@end
-
-@implementation SplitViewController
-
-@synthesize didUserSeeSignInScreen;
-
--(void) viewDidAppear:(BOOL)animated
-{
+-(void)stopThread{
+    [backgroundDownloadingThread cancel];
+}
+-(void)startThread{
+    DataManager *dataManager = [[DataManager alloc] init];
+    backgroundDownloadingThread =[[NSThread alloc] initWithTarget:dataManager selector:@selector(threadStart) object:nil];
+    [backgroundDownloadingThread start];
+}
+-(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     
-    if (didUserSeeSignInScreen == 0)
-    {
-        didUserSeeSignInScreen = 1;
-        [self performSegueWithIdentifier:@"SegueToLogin" sender:self];
-    }
+    NSString *loginText =[[NSUserDefaults standardUserDefaults] stringForKey:@"User"];
+    NSString *urlText = [[NSUserDefaults standardUserDefaults] stringForKey:@"URL"];
+    NSString *passwordText = [[NSUserDefaults standardUserDefaults] stringForKey:@"Password"];
     
+    if (loginText!=nil&&urlText!=nil&&passwordText!=nil){
+        [self startThread];
+    }
+    else{
+        LoginPasswordViewController *loginView = [[LoginPasswordViewController alloc] init];
+        [self.navigationController presentViewController:loginView animated:YES completion:nil];
+        loginView.delegate=self;
+    }
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    didUserSeeSignInScreen = 0;
-	
-}
-
-
+//- (void)viewDidLoad{
+//    
+//    [super viewDidLoad];
+//}
 
 @end

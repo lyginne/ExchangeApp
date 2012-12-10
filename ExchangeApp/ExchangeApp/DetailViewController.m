@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "ShowTextFromFilesViewController.h"
+#import "DataManager.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -20,6 +21,14 @@
 
 @synthesize tblView;
 @synthesize inf;
+
+- (IBAction)unlogin:(UIBarButtonItem *)sender{
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"User"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"Password"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"URL"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 - (void)dealloc
 {
     [_detailItem release];
@@ -185,5 +194,6 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
+
 
 @end

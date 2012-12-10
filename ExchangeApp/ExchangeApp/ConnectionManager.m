@@ -12,12 +12,15 @@
     
     NSString *str;
     NSMutableData *receivedData;
+    //NSString *errorMessage;
 }
 
 @synthesize folder;
 @synthesize delegate=_delegate;
 
 -(void)createRequestToUrl:(NSURL *) url requestHTTPBody:(NSString *) requestHTTPBody {
+    
+    //errorMessage=@"Connection Failed";
     
     NSData *requestHTTPBodyData=[requestHTTPBody dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest  requestWithURL:url
@@ -33,9 +36,12 @@
         // receivedData is an instance variable declared elsewhere.
        receivedData = [[NSMutableData data] retain];
         NSLog(@"Connection succeed");
-    } else {
+    }
+    else {
         NSLog(@"Connection failed");
         // Inform the user that the connection failed.
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Connection Failed" object:nil];
+        
     }
 }
 
@@ -44,15 +50,20 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     if ([challenge previousFailureCount] == 0) {
         NSURLCredential *newCredential;
-        newCredential = [NSURLCredential credentialWithUser:@"sed2"
-                                                   password:@"P@ssw0rd"
+        NSString *user=[[NSUserDefaults standardUserDefaults] stringForKey:@"User"];
+        NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"Password"];
+        newCredential = [NSURLCredential credentialWithUser:user
+                                                   password:password//@"P@ssw0rd"
                                                 persistence:NSURLCredentialPersistenceForSession];
         [[challenge sender] useCredential:newCredential
                forAuthenticationChallenge:challenge];
         NSLog(@"Authentification complete");
-    } else {
+    }
+    else {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
         NSLog(@"Authentification Failed");
+        //errorMessage=@"Authentification Failed";
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Authentification Failed" object:nil];
         [receivedData release];
         // inform the user that the user name and password
         // in the preferences are incorrect
@@ -77,21 +88,28 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Authentification Succeed" object:nil];
+    
     [receivedData appendData:data];
     NSString *receivedDataStr=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"Did Receive data %@", receivedDataStr);
     
 }
 
+
+
 - (void)connection:(NSURLConnection *)connection
   didFailWithError:(NSError *)error
 {
-    // release the connection, and the data object
+    // inform the user
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Connection Failed" object:nil];
+    // release Connection
     [connection release];
     // receivedData is declared as a method instance elsewhere
     [receivedData release];
     
-    // inform the user
+    
     NSLog(@"Connection failed! Error - %@ %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey],
@@ -104,6 +122,7 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
     // receivedData is declared as a method instance elsewhere
     //NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
     
+
     // release the connection, and the data object
     NSLog(@"Connection Did Finish Loading");
     [_delegate connectionManager:self didFinishLoadingData:receivedData];

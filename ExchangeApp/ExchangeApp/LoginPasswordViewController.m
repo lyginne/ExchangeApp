@@ -7,72 +7,89 @@
 //
 
 #import "LoginPasswordViewController.h"
+#import "DataManager.h"
 
-@interface LoginPasswordViewController ()
-
-@property (nonatomic, strong) IBOutlet UITextField *login;
-@property (nonatomic, strong) IBOutlet UITextField *password;
--(IBAction)signIn:(id)sender;
-
-@end
-
-@implementation LoginPasswordViewController
-
+@implementation LoginPasswordViewController{
+    
+    NSString *alertString;
+}
 
 @synthesize login;
 @synthesize password;
+@synthesize url;
+@synthesize delegate;
 
+-(void)showAlert{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:alertString
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+-(void)dismiss{
+   [self dismissViewControllerAnimated:NO completion:nil]; 
+}
+-(void)authentificationSucceed{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self performSelectorOnMainThread:@selector(dismiss) withObject:nil waitUntilDone:NO];
+    
+}
+-(void)authentificationFailed{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self performSelectorOnMainThread:@selector(showAlert) withObject:nil waitUntilDone:NO];
+        //[self dismissViewControllerAnimated:NO completion:nil];
+    [delegate stopThread];
+    
+}
+-(void)connectionFailed{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    alertString=@"Connection Failed";
+    [self performSelectorOnMainThread:@selector(showAlert) withObject:nil waitUntilDone:NO];
+    [delegate stopThread];
+}
+
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    //[super viewDidAppear:NO];
+    NSString *loginText =[[NSUserDefaults standardUserDefaults] stringForKey:@"User"];
+    NSString *urlText = [[NSUserDefaults standardUserDefaults] stringForKey:@"URL"];
+    NSString *passwordText = [[NSUserDefaults standardUserDefaults] stringForKey:@"Password"];
+
+    if (loginText!=nil&&urlText!=nil&&passwordText!=nil){
+        //[self performSegueWithIdentifier:@"SegueToLogin" sender:self];
+        [self dismiss];
+    }
+    
+    if (loginText!=nil){
+        login.text=loginText;
+    }
+    if (urlText!=nil){
+        url.text=urlText;
+    }    
+}
 -(IBAction)signIn:(id)sender
 {
-    // check here if login and password are correct
-    NSString *logintext = [[NSString alloc] initWithString:login.text];
-    NSString *passwordtext = [[NSString alloc] initWithString:password.text];
-    BOOL loginCorrect = [logintext isEqualToString:@""];
-    BOOL passwordCorrect = [passwordtext isEqualToString:@""];
+    // check here if login and password are correct se
+    [[NSUserDefaults standardUserDefaults] setObject:login.text forKey:@"User"];
+    [[NSUserDefaults standardUserDefaults] setObject:password.text forKey:@"Password"];
+    [[NSUserDefaults standardUserDefaults] setObject:url.text forKey:@"URL"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    if ((loginCorrect) && (passwordCorrect))
-    {
-        UIAlertView *simpleAlert = [[UIAlertView alloc] initWithTitle:@"Sign in succes!"
-                                                              message:@"loading data"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-        
-        
-        [simpleAlert show];
-        [simpleAlert release];
-        [logintext release];
-        [passwordtext release];
-        //dismiss
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    else
-    {
-        UIAlertView *simpleAlert = [[UIAlertView alloc] initWithTitle:@"Incorrect login and password"
-                                                              message:@"Please, try again"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-        
-        [simpleAlert show];
-        [simpleAlert release];
-        [logintext release];
-        [passwordtext release];
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authentificationFailed) name:@"Authentification Failed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authentificationSucceed) name:@"Authentification Succeed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionFailed) name:@"Connection Failed" object:nil];
+    
+    [delegate startThread];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (void)viewDidLoad{
     
-    [textField resignFirstResponder];
-    return NO;
-}
-
-- (void)viewDidLoad
-{
     [super viewDidLoad];
     login.delegate = self;
     password.delegate = self;
-	
 }
 
 

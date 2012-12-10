@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginPasswordViewController.h"
 
-@interface SplitViewController : UISplitViewController
+
+
+@interface SplitViewController : UISplitViewController <StartThreadDelegate>
 
 @property (nonatomic) int didUserSeeSignInScreen;
+
+-(IBAction)signIn:(id)sender;
+//@property (assign,nonatomic) id<SplitViewControllerDelegate> delegate;
+
 
 @end

@@ -11,8 +11,9 @@
 
 @interface RequestFormer : NSObject <ConnectionManagerDelegate>
 
--(void) getSubFoldersFromDistinguishedFolderId:(NSString *) distinguishedFolderId;
--(void) getSubFoldersFromFolder:(Folder *) folder
-      withDistinguishedFolderId:(NSString *) distinguishedFolderId;
+//-(void) getSubFoldersFromDistinguishedFolderId:(NSString *) distinguishedFolderId;
+-(void) getSubFoldersFromFolderWithFolderId:(NSString *) folderId;
+-(void) getSubFoldersFromFolderWithDistinguishedFolderId:(NSString *) distinguishedFolderId;
+-(NSString *)XMLtoGetItemFromFolderId:(NSString *) folderId;
 
 @end

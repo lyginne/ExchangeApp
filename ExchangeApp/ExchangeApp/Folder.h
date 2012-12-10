@@ -11,9 +11,8 @@
 @interface Folder : NSObject
 
 @property (retain, nonatomic) NSString * folderId;
-@property (assign, nonatomic) Folder *previousFolder;
+@property (assign, nonatomic) NSString *parentFolderId;
 @property (retain, nonatomic) NSString * displayName;
-@property (assign, nonatomic) NSMutableArray * subFolders;
-@property (assign, nonatomic) NSMutableArray * subItems;
+
 
 @end

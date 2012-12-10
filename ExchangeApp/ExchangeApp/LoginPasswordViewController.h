@@ -7,7 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "SplitViewController.h"
 
-@interface LoginPasswordViewController :  UIViewController <UITextFieldDelegate>
+@protocol StartThreadDelegate <NSObject>
+
+@required
+-(void)startThread;
+-(void)stopThread;
+
+@end
+
+@interface LoginPasswordViewController :  UIViewController <UITextFieldDelegate>//, SplitViewControllerDelegate>
+
+@property (assign) id<StartThreadDelegate> delegate;
+
+@property (nonatomic, strong) IBOutlet UITextField *login;
+@property (nonatomic, strong) IBOutlet UITextField *password;
+@property (nonatomic, strong) IBOutlet UITextField *url;
+
+-(IBAction)signIn:(id)sender;
 
 @end

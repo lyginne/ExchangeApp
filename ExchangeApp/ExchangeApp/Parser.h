@@ -13,6 +13,6 @@
 @interface Parser : NSObject {
     
 }
--(void) fillArray:(Folder *) parentFolder withReceivedFoldersData:(NSData *) receivedData;
+-(void) fillArrayWithReceivedFoldersData:(NSData *) receivedData;
 
 @end

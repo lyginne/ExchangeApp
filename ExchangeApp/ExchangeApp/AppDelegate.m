@@ -10,6 +10,7 @@
 //#import "ConnectionManager.h"
 #import "RequestFormer.h"
 #import "Folder.h"
+#import "DataManager.h"
 
 @implementation AppDelegate
 
@@ -26,10 +27,10 @@
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     splitViewController.delegate = (id)navigationController.topViewController;
     //[[ConnectionManager alloc] init];
-    RequestFormer *requestFormer = [[RequestFormer alloc] init];
-    Folder *rootFolder=[[Folder alloc] init];
-    [requestFormer getSubFoldersFromFolder:rootFolder
-                         withDistinguishedFolderId:@"root"];
+//    RequestFormer *requestFormer = [[RequestFormer alloc] init];
+//    DataManager *dataManager = [[DataManager alloc] init];
+//    //Folder *rootFolder=[[Folder alloc] init];
+//    [requestFormer getSubFoldersFromFolderWithDistinguishedFolderId:@"msgfolderroot"];
     return YES;
 }
 							

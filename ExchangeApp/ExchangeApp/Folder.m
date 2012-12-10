@@ -10,11 +10,9 @@
 
 @implementation Folder
 
-@synthesize subFolders;
-
 -(id) init {
     self=[super init];
-    subFolders=[[NSMutableArray alloc] init];
+    //subFolders=[[NSMutableArray alloc] init];
     return self;
 }
 
