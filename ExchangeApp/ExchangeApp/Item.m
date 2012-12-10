@@ -2,7 +2,7 @@
 //  Item.m
 //  ExchangeApp
 //
-//  Created by Admin on 11/18/12.
+//  Created by Никита on 10.12.12.
 //  Copyright (c) 2012 Admin. All rights reserved.
 //
 
@@ -10,6 +10,9 @@
 
 @implementation Item
 
-
+@synthesize itemId;
+@synthesize parentFolderId;
+@synthesize body;
+@synthesize bodyType;
 
 @end

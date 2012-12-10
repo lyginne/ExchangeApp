@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    CurentOperationGetFolder,
-    CurrentOperationGetItem
-} ServerWhispererCurrentOperation;
+
 @class Folder;
 
 @protocol ConnectionManagerDelegate;

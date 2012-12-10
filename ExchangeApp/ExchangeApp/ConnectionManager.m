@@ -1,3 +1,4 @@
+
 //
 //  ConnectionController.m
 //  ExchangeApp
@@ -20,8 +21,6 @@
 
 -(void)createRequestToUrl:(NSURL *) url requestHTTPBody:(NSString *) requestHTTPBody {
     
-    //errorMessage=@"Connection Failed";
-    
     NSData *requestHTTPBodyData=[requestHTTPBody dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest  requestWithURL:url
                                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -30,8 +29,8 @@
     [theRequest setValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     [theRequest setHTTPBody:requestHTTPBodyData];
     
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    if (theConnection) {
+    NSURLConnection *connection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (connection) {
         // Create the NSMutableData to hold the received data.
         // receivedData is an instance variable declared elsewhere.
        receivedData = [[NSMutableData data] retain];
@@ -92,8 +91,8 @@ didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Authentification Succeed" object:nil];
     
     [receivedData appendData:data];
-    NSString *receivedDataStr=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Did Receive data %@", receivedDataStr);
+//    NSString *receivedDataStr=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSLog(@"Did Receive data %@", receivedDataStr);
     
 }
 

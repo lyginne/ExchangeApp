@@ -23,7 +23,7 @@
     [backgroundDownloadingThread start];
 }
 -(void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:YES];
+    //[super viewDidAppear:YES];
     
     NSString *loginText =[[NSUserDefaults standardUserDefaults] stringForKey:@"User"];
     NSString *urlText = [[NSUserDefaults standardUserDefaults] stringForKey:@"URL"];
@@ -34,8 +34,16 @@
     }
     else{
         LoginPasswordViewController *loginView = [[LoginPasswordViewController alloc] init];
-        [self.navigationController presentViewController:loginView animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"SegueToLogin" sender:self];
+    //[self presentViewController:loginView animated:YES completion:nil];
         loginView.delegate=self;
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"SegueToLogin"]){
+        LoginPasswordViewController *loginViewContgroller=segue.destinationViewController;
+        loginViewContgroller.delegate=self;
     }
 }
 //- (void)viewDidLoad{

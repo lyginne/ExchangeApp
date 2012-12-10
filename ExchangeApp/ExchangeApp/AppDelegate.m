@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 //#import "ConnectionManager.h"
 #import "RequestFormer.h"
-#import "Folder.h"
+//#import "Folder.h"
 #import "DataManager.h"
 
 @implementation AppDelegate

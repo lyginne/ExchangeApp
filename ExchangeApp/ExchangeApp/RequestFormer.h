@@ -14,6 +14,8 @@
 //-(void) getSubFoldersFromDistinguishedFolderId:(NSString *) distinguishedFolderId;
 -(void) getSubFoldersFromFolderWithFolderId:(NSString *) folderId;
 -(void) getSubFoldersFromFolderWithDistinguishedFolderId:(NSString *) distinguishedFolderId;
--(NSString *)XMLtoGetItemFromFolderId:(NSString *) folderId;
+-(void) getItemsFromFolderWithFolderId:(NSString *)folderId;
+-(void) getItemWithgItemId:(NSString *)itemId;
+//-(NSString *)XMLtoGetItemFromFolderId:(NSString *) folderId;
 
 @end

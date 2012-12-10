@@ -13,6 +13,7 @@
 
 static NSMutableArray *foldersArray;
 static NSMutableArray *itemsArray;
+static NSCondition *arraysCondition;
 
 
 -(void)threadStart{
@@ -20,10 +21,14 @@ static NSMutableArray *itemsArray;
     {
         NSLog(@"%@", @"thread is fockin alive");
         RequestFormer *requestFormer = [[RequestFormer alloc] init];
+        [arraysCondition lock];
         [requestFormer getSubFoldersFromFolderWithDistinguishedFolderId:@"msgfolderroot"];
         NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
         //[[NSRunLoop currentRunLoop] addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
         while ([runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Data Reloaded" object:nil];
+        [arraysCondition unlock];
+        [requestFormer release];
         [NSThread sleepForTimeInterval:180];
 		//run loop spinned ones
 	}
@@ -41,6 +46,9 @@ static NSMutableArray *itemsArray;
 }
 +(NSMutableArray *) getItemsArray{
     return itemsArray;
+}
++(NSCondition *)getCondition{
+    return arraysCondition;
 }
 
 @end

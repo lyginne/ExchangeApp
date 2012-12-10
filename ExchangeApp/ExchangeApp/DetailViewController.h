@@ -7,17 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Folders.h"
-#import "Files.h"
+//#import "Folders.h"
+//#import "Files.h"
 
 
 
 @interface DetailViewController :  UIViewController <UISplitViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
-
-@property (strong, nonatomic) Folders *detailItem;
-
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 - (IBAction)unlogin:(UIBarButtonItem *)sender;
 
 @end

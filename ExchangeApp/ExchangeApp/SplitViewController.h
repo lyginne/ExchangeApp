@@ -15,7 +15,7 @@
 
 @property (nonatomic) int didUserSeeSignInScreen;
 
--(IBAction)signIn:(id)sender;
+//-(IBAction)signIn:(id)sender;
 //@property (assign,nonatomic) id<SplitViewControllerDelegate> delegate;
 
 

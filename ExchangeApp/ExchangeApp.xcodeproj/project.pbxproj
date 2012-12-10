@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2439ED9A16763B2300414D44 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2439ED9916763B2300414D44 /* Folder.m */; };
+		243D24B216764669005AD364 /* DBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243D24B116764669005AD364 /* DBController.m */; };
+		243D24B516764AB8005AD364 /* XMLFormer.m in Sources */ = {isa = PBXBuildFile; fileRef = 243D24B416764AB8005AD364 /* XMLFormer.m */; };
+		243D24B816765A1F005AD364 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 243D24B716765A1F005AD364 /* Item.m */; };
 		2468ECB7166FA10A002E5590 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2468ECB6166FA10A002E5590 /* DataManager.m */; };
-		36A8D984165989C200571C39 /* Folders.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D983165989C200571C39 /* Folders.m */; };
-		36A8D988165989D600571C39 /* Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D987165989D500571C39 /* Files.m */; };
 		36A8D98F165995CB00571C39 /* LoginPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D98E165995CB00571C39 /* LoginPasswordViewController.m */; };
 		36A8D9921659961B00571C39 /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D9911659961B00571C39 /* SplitViewController.m */; };
 		36A8D9991659989400571C39 /* ShowTextFromFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8D9981659989400571C39 /* ShowTextFromFilesViewController.m */; };
 		842AD0C916590FCC003A911E /* RequestFormer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0C816590FCC003A911E /* RequestFormer.m */; };
-		842AD0CC16592AF4003A911E /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0CB16592AF4003A911E /* Folder.m */; };
-		842AD0CF16592C3B003A911E /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0CE16592C3B003A911E /* Item.m */; };
 		842AD0D61659316A003A911E /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 842AD0D51659316A003A911E /* GDataXMLNode.m */; };
 		847AD49216517B6B00A045EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49116517B6B00A045EC /* UIKit.framework */; };
 		847AD49416517B6B00A045EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847AD49316517B6B00A045EC /* Foundation.framework */; };
@@ -34,12 +34,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2439ED9816763B0A00414D44 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = ../../../../Documents/ExchangeApp/ExchangeApp/ExchangeApp/ExchangeApp/ExchangeApp/Folder.h; sourceTree = "<group>"; };
+		2439ED9916763B2300414D44 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		243D24B016764669005AD364 /* DBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBController.h; sourceTree = "<group>"; };
+		243D24B116764669005AD364 /* DBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBController.m; sourceTree = "<group>"; };
+		243D24B316764AB8005AD364 /* XMLFormer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLFormer.h; sourceTree = "<group>"; };
+		243D24B416764AB8005AD364 /* XMLFormer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLFormer.m; sourceTree = "<group>"; };
+		243D24B616765A1F005AD364 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		243D24B716765A1F005AD364 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		2468ECB5166FA10A002E5590 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		2468ECB6166FA10A002E5590 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		36A8D982165989C200571C39 /* Folders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folders.h; sourceTree = "<group>"; };
-		36A8D983165989C200571C39 /* Folders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folders.m; sourceTree = "<group>"; };
-		36A8D986165989D500571C39 /* Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Files.h; sourceTree = "<group>"; };
-		36A8D987165989D500571C39 /* Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Files.m; sourceTree = "<group>"; };
 		36A8D98D165995CA00571C39 /* LoginPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPasswordViewController.h; sourceTree = "<group>"; };
 		36A8D98E165995CB00571C39 /* LoginPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPasswordViewController.m; sourceTree = "<group>"; };
 		36A8D9901659961A00571C39 /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
@@ -48,10 +52,6 @@
 		36A8D9981659989400571C39 /* ShowTextFromFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTextFromFilesViewController.m; sourceTree = "<group>"; };
 		842AD0C716590FCC003A911E /* RequestFormer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestFormer.h; sourceTree = "<group>"; };
 		842AD0C816590FCC003A911E /* RequestFormer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestFormer.m; sourceTree = "<group>"; };
-		842AD0CA16592AF4003A911E /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
-		842AD0CB16592AF4003A911E /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
-		842AD0CD16592C3B003A911E /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		842AD0CE16592C3B003A911E /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		842AD0D41659316A003A911E /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		842AD0D51659316A003A911E /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		847AD48D16517B6B00A045EC /* ExchangeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +99,8 @@
 				849243C816556F2700670FBD /* ConnectionManager.m */,
 				842AD0C716590FCC003A911E /* RequestFormer.h */,
 				842AD0C816590FCC003A911E /* RequestFormer.m */,
+				243D24B316764AB8005AD364 /* XMLFormer.h */,
+				243D24B416764AB8005AD364 /* XMLFormer.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -106,16 +108,14 @@
 		842AD0D216592CEE003A911E /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				842AD0CA16592AF4003A911E /* Folder.h */,
-				842AD0CB16592AF4003A911E /* Folder.m */,
-				842AD0CD16592C3B003A911E /* Item.h */,
-				842AD0CE16592C3B003A911E /* Item.m */,
-				36A8D982165989C200571C39 /* Folders.h */,
-				36A8D983165989C200571C39 /* Folders.m */,
-				36A8D986165989D500571C39 /* Files.h */,
-				36A8D987165989D500571C39 /* Files.m */,
 				2468ECB5166FA10A002E5590 /* DataManager.h */,
 				2468ECB6166FA10A002E5590 /* DataManager.m */,
+				243D24B016764669005AD364 /* DBController.h */,
+				243D24B116764669005AD364 /* DBController.m */,
+				2439ED9816763B0A00414D44 /* Folder.h */,
+				2439ED9916763B2300414D44 /* Folder.m */,
+				243D24B616765A1F005AD364 /* Item.h */,
+				243D24B716765A1F005AD364 /* Item.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -276,16 +276,16 @@
 				847AD4B116517B6B00A045EC /* DetailViewController.m in Sources */,
 				849243C916556F2700670FBD /* ConnectionManager.m in Sources */,
 				842AD0C916590FCC003A911E /* RequestFormer.m in Sources */,
-				842AD0CC16592AF4003A911E /* Folder.m in Sources */,
-				842AD0CF16592C3B003A911E /* Item.m in Sources */,
 				842AD0D61659316A003A911E /* GDataXMLNode.m in Sources */,
 				8493545C165955200068BF2A /* Parser.m in Sources */,
-				36A8D984165989C200571C39 /* Folders.m in Sources */,
-				36A8D988165989D600571C39 /* Files.m in Sources */,
 				36A8D98F165995CB00571C39 /* LoginPasswordViewController.m in Sources */,
 				36A8D9921659961B00571C39 /* SplitViewController.m in Sources */,
 				36A8D9991659989400571C39 /* ShowTextFromFilesViewController.m in Sources */,
 				2468ECB7166FA10A002E5590 /* DataManager.m in Sources */,
+				2439ED9A16763B2300414D44 /* Folder.m in Sources */,
+				243D24B216764669005AD364 /* DBController.m in Sources */,
+				243D24B516764AB8005AD364 /* XMLFormer.m in Sources */,
+				243D24B816765A1F005AD364 /* Item.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
