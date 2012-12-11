@@ -10,8 +10,15 @@
 
 @interface DataManager : NSObject
 
+-(void)threadStart;
+
 +(NSMutableArray *)getFoldersArray;
 +(NSMutableArray *) getItemsArray;
--(void)threadStart;
+
++(void)createFolderInParentFolder:(NSString *) parentFolderId withName:(NSString *) name;
++(void)renameFolderWithId:(NSString *) folderId name:(NSString *) newName;
++(void)deleteFolderWithId:(NSString *) folderId;
++(void)deleteItem:(NSString *) itemId;
++(void)replaceItem:(NSString *) itenId inParentFolder:(NSString *) parentFolderId;
 
 @end

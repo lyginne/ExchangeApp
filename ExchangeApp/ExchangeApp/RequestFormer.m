@@ -46,6 +46,42 @@
     [connectionManager setDelegate:self];
 }
 
+-(void) replaceItem:(NSString *) itemId inFolder:(NSString *) parentFolderId{
+    NSURL *url=[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"URL"]];
+    NSString *requestHTTPBody=[XMLFormer XMLtoReplaceItem:itemId toFolder:parentFolderId];
+    ConnectionManager *connectionManager=[[ConnectionManager alloc] init];
+    [connectionManager createRequestToUrl:url requestHTTPBody:requestHTTPBody];
+    [connectionManager setDelegate:self];
+}
+-(void) deleteItem:(NSString *) itemId{
+    NSURL *url=[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"URL"]];
+    NSString *requestHTTPBody=[XMLFormer XMLtoDeleteItem:itemId];
+    ConnectionManager *connectionManager=[[ConnectionManager alloc] init];
+    [connectionManager createRequestToUrl:url requestHTTPBody:requestHTTPBody];
+    [connectionManager setDelegate:self];
+}
+-(void) deleteFolder:(NSString *) folderId{
+    NSURL *url=[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"URL"]];
+    NSString *requestHTTPBody=[XMLFormer XMLtoDeleteFolder:folderId];
+    ConnectionManager *connectionManager=[[ConnectionManager alloc] init];
+    [connectionManager createRequestToUrl:url requestHTTPBody:requestHTTPBody];
+    [connectionManager setDelegate:self];
+}
+-(void)createFolderinFolder:(NSString *)parentfolderIdn withName:(NSString *)name{
+    NSURL *url=[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"URL"]];
+    NSString *requestHTTPBody=[XMLFormer XMLtoCreateFolderInFolder:parentfolderIdn withName:name];
+    ConnectionManager *connectionManager=[[ConnectionManager alloc] init];
+    [connectionManager createRequestToUrl:url requestHTTPBody:requestHTTPBody];
+    [connectionManager setDelegate:self];
+}
+-(void)renameFolder:(NSString *)folderId name:(NSString *) newName{
+    NSURL *url=[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"URL"]];
+    NSString *requestHTTPBody=[XMLFormer XMLtoRenameFolder:folderId name:newName];
+    ConnectionManager *connectionManager=[[ConnectionManager alloc] init];
+    [connectionManager createRequestToUrl:url requestHTTPBody:requestHTTPBody];
+    [connectionManager setDelegate:self];
+}
+
 -(void) connectionManager:(ConnectionManager *)connectionManager didFinishLoadingData:(NSData *)data{
     Parser *pasrser = [[Parser alloc] init];
     [pasrser fillArrayWithReceivedFoldersData:data];

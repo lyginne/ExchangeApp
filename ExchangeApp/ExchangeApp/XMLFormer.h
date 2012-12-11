@@ -15,4 +15,9 @@
 +(NSString *)XMLtoGetItemsFromFolderId:(NSString *) folderId;
 +(NSString *)XMLtoGetItemWithItemId:(NSString *) itemId;
 
++(NSString *)XMLtoReplaceItem:(NSString *)itemId toFolder:(NSString *) parentFolderId;
++(NSString *)XMLtoDeleteItem:(NSString *)itemId;
++(NSString *)XMLtoDeleteFolder:(NSString *)foldefId;
++(NSString *)XMLtoRenameFolder:(NSString *)folderId name:(NSString *) newName;
++(NSString *)XMLtoCreateFolderInFolder:(NSString *) parentFolder withName:(NSString *) name;
 @end

@@ -11,11 +11,18 @@
 
 @interface RequestFormer : NSObject <ConnectionManagerDelegate>
 
-//-(void) getSubFoldersFromDistinguishedFolderId:(NSString *) distinguishedFolderId;
+//________________________GetData
 -(void) getSubFoldersFromFolderWithFolderId:(NSString *) folderId;
 -(void) getSubFoldersFromFolderWithDistinguishedFolderId:(NSString *) distinguishedFolderId;
 -(void) getItemsFromFolderWithFolderId:(NSString *)folderId;
 -(void) getItemWithgItemId:(NSString *)itemId;
+
+//________________________SetData
+-(void) createFolderinFolder:(NSString *)parentfolderId withName:(NSString *) name;
+-(void) renameFolder:(NSString *) folderId name:(NSString *) newName;
+-(void) deleteFolder:(NSString *) folderId;
+-(void) deleteItem:(NSString *) itemId;
+-(void) replaceItem:(NSString *) itemId inFolder:(NSString *) parentFolderId;
 //-(NSString *)XMLtoGetItemFromFolderId:(NSString *) folderId;
 
 @end

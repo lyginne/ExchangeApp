@@ -83,9 +83,12 @@
                                                            options:0 error:&error];
     NSDictionary *myNS = [NSDictionary dictionaryWithObjectsAndKeys:
                           @"http://schemas.microsoft.com/exchange/services/2006/types", @"t",@"http://schemas.microsoft.com/exchange/services/2006/messages",@"m", nil];
-    if ([doc nodesForXPath:@"//m:FindFolderResponse" namespaces:myNS error:nil])
+    if ([doc nodesForXPath:@"//m:FindFolderResponse" namespaces:myNS error:nil]||
+        [doc nodesForXPath:@"//m:UpdateFolderResponse" namespaces:myNS error:nil]||
+        [doc nodesForXPath:@"//m:CreateFolderResponse" namespaces:myNS error:nil])
         [self findFoldersInDoc:doc withNamespaces:myNS];
-    if ([doc nodesForXPath:@"//m:FindItemResponse" namespaces:myNS error:nil])
+    if ([doc nodesForXPath:@"//m:FindItemResponse" namespaces:myNS error:nil]||
+        [doc nodesForXPath:@"//m:MoveItemResponse" namespaces:myNS error:nil])
         [self findItemsInDoc:doc withNamespaces:myNS];
     if ([doc nodesForXPath:@"//m:GetItemResponse" namespaces:myNS error:nil])
         [self getItemsInDoc:doc withNamespaces:myNS];
